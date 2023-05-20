@@ -1,0 +1,14 @@
+textarea,
+input {
+  font-size: 18px;
+}
+.side-by-side {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.big {
+  font-size: 18px;
+}
