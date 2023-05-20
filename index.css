@@ -12,3 +12,26 @@ input {
 .big {
   font-size: 18px;
 }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+td {
+  height: 20px;
+  width: 20px;
+  text-align: center;
+}
+
+.contain-key table tr:first-child td {
+  font-weight: bold;
+  background-color: aliceblue;
+}
