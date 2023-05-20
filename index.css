@@ -43,5 +43,8 @@ td {
   font-size: 20px;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  display: inline-block;
+}
+
+#result h2 {
+  margin-bottom: 0px;
 }
