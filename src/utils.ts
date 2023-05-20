@@ -81,6 +81,21 @@ export function displayMatrixOrderedByKey(
   displayMatrix(encryptedMatrix, placeHolderKey);
   encryptedMatrix.shift();
   displayMatrix(encryptedMatrix, placeHolderNoKey);
+  return convertArrayToString(encryptedMatrix);
+}
+export function displayResult(result: string, placeHolder: HTMLElement) {
+  placeHolder.innerHTML = `
+    <h2>Result:</h2>
+    <p id="result-value">${result.replaceAll(" ", "&nbsp;")}</p>
+    <button id="copy-me">Copy</button>
+    `;
+  const button = document.querySelector("#copy-me") as HTMLButtonElement;
+  button.addEventListener("click", () => {
+    const resultValue = (
+      document.querySelector("#result-value") as HTMLElement
+    ).innerHTML.replaceAll("&nbsp;", " ");
+    navigator.clipboard.writeText(resultValue);
+  });
 }
 
 function sortWithIndexes(toSort: string[]) {
@@ -91,6 +106,10 @@ function sortWithIndexes(toSort: string[]) {
     return toSort[a] < toSort[b] ? -1 : toSort[a] > toSort[b] ? 1 : 0;
   });
   return indexes;
+}
+
+function convertArrayToString(arr: string[][]) {
+  return arr.map((row) => row.join("")).join("");
 }
 
 function sortColumnsByFirstRow(arr: string[][]): string[][] {
@@ -106,4 +125,25 @@ function sortColumnsByFirstRow(arr: string[][]): string[][] {
   const sortedArr = arr.map((row) => columnIndices.map((index) => row[index]));
 
   return sortedArr;
+}
+
+export function decrypt(text: string, key: string) {
+  const orderedIndex = sortWithIndexes(key.split(""));
+  const matrix = textToMatrix(text, [key.length, undefined]);
+  console.log(orderedIndex);
+  console.log(matrix);
+  const decryptedMatrix = sortColumnsByIndices(matrix, orderedIndex);
+  console.log(decryptedMatrix);
+  return convertArrayToString(decryptedMatrix);
+}
+function sortColumnsByIndices(matrix: string[][], indices: number[]) {
+  const sortedMatrix = [];
+  for (let i = 0; i < matrix.length; i++) {
+    const row = [];
+    for (let j = 0; j < indices.length; j++) {
+      row[indices[j]] = matrix[i][j];
+    }
+    sortedMatrix.push(row);
+  }
+  return sortedMatrix;
 }

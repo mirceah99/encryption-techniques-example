@@ -1,10 +1,12 @@
-const TEXT_INPUT = document.querySelector(
+const TEXT_ENCRYPT = document.querySelector(
   "#text-to-encrypt"
 ) as HTMLTextAreaElement;
+const TEXT_DECRYPT = document.querySelector(
+  "#text-to-decrypt"
+) as HTMLTextAreaElement;
 const KEY_INPUT = document.querySelector("#key") as HTMLTextAreaElement;
-const APPLY_T_CYPRESS_BUTTON = document.querySelector(
-  "#apply-transposition-ciphers"
-) as HTMLButtonElement;
+const ENCRYPT = document.querySelector("#encrypt") as HTMLButtonElement;
+const DECRYPT = document.querySelector("#decrypt") as HTMLButtonElement;
 const T_CYPRESS_INT_MATRIX = document.querySelector(
   "#transposition-ciphers-initial-matrix"
 ) as HTMLElement;
@@ -17,12 +19,17 @@ const T_CYPRESS_ENCRYPT_MATRIX_KEY = document.querySelector(
 const T_CYPRESS_ENCRYPT_MATRIX = document.querySelector(
   "#transposition-ciphers-encrypted-matrix"
 ) as HTMLElement;
+const RESULT = document.querySelector("#result") as HTMLElement;
+
 export {
-  TEXT_INPUT,
+  TEXT_ENCRYPT,
+  TEXT_DECRYPT,
   KEY_INPUT,
-  APPLY_T_CYPRESS_BUTTON,
+  ENCRYPT,
+  DECRYPT,
   T_CYPRESS_INT_MATRIX,
   T_CYPRESS_INT_MATRIX_KEY,
   T_CYPRESS_ENCRYPT_MATRIX_KEY,
   T_CYPRESS_ENCRYPT_MATRIX,
+  RESULT,
 };

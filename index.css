@@ -35,3 +35,13 @@ td {
   font-weight: bold;
   background-color: aliceblue;
 }
+.split-in-2 {
+  display: flex;
+  gap: 30px;
+}
+#result p {
+  font-size: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: inline-block;
+}
