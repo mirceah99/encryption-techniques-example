@@ -13,27 +13,48 @@
   </head>
   <body>
     <div class="split-in-2">
-      <div >
+      <div>
         <h2>Text to encrypt:</h2>
-        <textarea id="text-to-encrypt" rows="4" cols="50">Spre deosebire de cifrurile cu substituţie, care păstrează ordinealiterelor din textul sursă dar le transformă, cifrurile cu transpoziţie(transposition ciphers) reordonează literele, fără a le „deghiza”.</textarea>
+        <textarea id="text-to-encrypt" rows="4" cols="50">
+Spre deosebire de cifrurile cu substituţie, care păstrează ordinea literelor din textul sursă dar le transformă, cifrurile cu transpoziţie(transposition ciphers) reordonează literele, fără a le „deghiza”.</textarea
+        >
       </div>
       <div>
         <h2>Text to decrypt:</h2>
         <textarea id="text-to-decrypt" rows="4" cols="50"></textarea>
       </div>
     </div>
+    <select id="method">
+      <option value="1">Transposition ciphers method</option>
+      <option value="2">Rotor machine</option>
+    </select>
     <h2>Key:</h2>
-    <input id="key" type="text"></input>
+    <textarea id="key" type="text">cheie-secreta-exemplu</textarea>
     <div class="side-by-side">
-      <button id ="encrypt">Encrypt</button>
-      <button id ="decrypt">Decrypt</button>
+      <button id="encrypt">Encrypt</button>
+      <button id="decrypt">Decrypt</button>
       <h3>Transposition ciphers method:</h3>
     </div>
-    <div id = "result">
+    <div id="result"></div>
+    <div id="method-1">
+      <div
+        id="transposition-ciphers-initial-matrix"
+        title="Original matrix:"
+      ></div>
+      <div
+        id="transposition-ciphers-initial-matrix-with-key"
+        title="Original matrix with unordered key:"
+        class="contain-key"
+      ></div>
+      <div
+        id="transposition-ciphers-encrypted-matrix-with-key"
+        title="Encrypted matrix with key:"
+        class="contain-key"
+      ></div>
+      <div
+        id="transposition-ciphers-encrypted-matrix"
+        title="Encrypted matrix:"
+      ></div>
     </div>
-    <div id="transposition-ciphers-initial-matrix" title="Original matrix:"></div>
-    <div id="transposition-ciphers-initial-matrix-with-key" title="Original matrix with unordered key:" class="contain-key"></div>
-    <div id="transposition-ciphers-encrypted-matrix-with-key" title="Encrypted matrix with key:" class="contain-key"></div>
-    <div id="transposition-ciphers-encrypted-matrix" title="Encrypted matrix:"></div>
   </body>
 </html>

@@ -147,3 +147,32 @@ function sortColumnsByIndices(matrix: string[][], indices: number[]) {
   }
   return sortedMatrix;
 }
+
+export function replaceCharacters(
+  mapping: { [key: string]: string },
+  text: string,
+  revers = false
+) {
+  let myMapping = { ...mapping };
+  if (revers) {
+    myMapping = reverseObjectKeysAndValues(mapping);
+  }
+  let result = "";
+  for (const x of text) {
+    result += myMapping[x] || x;
+    console.log(result);
+  }
+  return result;
+}
+
+function reverseObjectKeysAndValues(
+  obj: Record<string, any>
+): Record<any, string> {
+  const reversedObj: Record<any, string> = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    reversedObj[value] = key;
+  }
+
+  return reversedObj;
+}

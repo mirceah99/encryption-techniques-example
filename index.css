@@ -48,3 +48,6 @@ td {
 #result h2 {
   margin-bottom: 0px;
 }
+select {
+  font-size: 20px;
+}

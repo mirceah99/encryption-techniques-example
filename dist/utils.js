@@ -121,3 +121,22 @@ function sortColumnsByIndices(matrix, indices) {
     }
     return sortedMatrix;
 }
+export function replaceCharacters(mapping, text, revers = false) {
+    let myMapping = { ...mapping };
+    if (revers) {
+        myMapping = reverseObjectKeysAndValues(mapping);
+    }
+    let result = "";
+    for (const x of text) {
+        result += myMapping[x] || x;
+        console.log(result);
+    }
+    return result;
+}
+function reverseObjectKeysAndValues(obj) {
+    const reversedObj = {};
+    for (const [key, value] of Object.entries(obj)) {
+        reversedObj[value] = key;
+    }
+    return reversedObj;
+}
